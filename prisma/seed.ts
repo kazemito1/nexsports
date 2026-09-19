@@ -3,8 +3,11 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.category.deleteMany();
+  await prisma.review.deleteMany();
+  await prisma.orderItem.deleteMany();
+  await prisma.cartItem.deleteMany();
   await prisma.product.deleteMany();
+  await prisma.category.deleteMany();
 
   const categories = await prisma.category.createMany({
     data: [
@@ -12,43 +15,43 @@ async function main() {
         name: "Calçados",
         slug: "calcados",
         description: "Tênis e calçados esportivos para todos os esportes.",
-        image: "https://placehold.co/600x400/0A0A0A/CCFF00?text=Calcados",
+        image: "https://placehold.co/600x400/EAE8E1/0F766E?text=Calcados",
       },
       {
         name: "Roupas Masculinas",
         slug: "roupas-masculinas",
         description: "Camisetas, shorts e agasalhos masculinos.",
-        image: "https://placehold.co/600x400/0A0A0A/CCFF00?text=Roupas+Masculinas",
+        image: "https://placehold.co/600x400/EAE8E1/0F766E?text=Roupas+Masculinas",
       },
       {
         name: "Roupas Femininas",
         slug: "roupas-femininas",
         description: "Leggings, tops e jaquetas femininas.",
-        image: "https://placehold.co/600x400/0A0A0A/CCFF00?text=Roupas+Femininas",
+        image: "https://placehold.co/600x400/EAE8E1/0F766E?text=Roupas+Femininas",
       },
       {
         name: "Tênis Masculino",
         slug: "tenis-masculino",
         description: "Tênis de corrida, treino e casual masculino.",
-        image: "https://placehold.co/600x400/0A0A0A/CCFF00?text=Tenis+Masculino",
+        image: "https://placehold.co/600x400/EAE8E1/0F766E?text=Tenis+Masculino",
       },
       {
         name: "Tênis Feminino",
         slug: "tenis-feminino",
         description: "Tênis de corrida, treino e casual feminino.",
-        image: "https://placehold.co/600x400/0A0A0A/CCFF00?text=Tenis+Feminino",
+        image: "https://placehold.co/600x400/EAE8E1/0F766E?text=Tenis+Feminino",
       },
       {
         name: "Meias Masculinas",
         slug: "meias-masculinas",
         description: "Meias esportivas masculinas de alto desempenho.",
-        image: "https://placehold.co/600x400/0A0A0A/CCFF00?text=Meias+Masculinas",
+        image: "https://placehold.co/600x400/EAE8E1/0F766E?text=Meias+Masculinas",
       },
       {
         name: "Meias Femininas",
         slug: "meias-femininas",
         description: "Meias esportivas femininas confortáveis e resistentes.",
-        image: "https://placehold.co/600x400/0A0A0A/CCFF00?text=Meias+Femininas",
+        image: "https://placehold.co/600x400/EAE8E1/0F766E?text=Meias+Femininas",
       },
     ],
   });
@@ -70,8 +73,8 @@ async function main() {
       basePrice: 799.9,
       stock: 45,
       images: JSON.stringify([
-        "https://placehold.co/800x800/0A0A0A/CCFF00?text=NEX+Runner+Pro",
-        "https://placehold.co/800x800/1a1a1a/CCFF00?text=NEX+Runner+Pro+2",
+        "https://placehold.co/800x800/EAE8E1/0F766E?text=NEX+Runner+Pro",
+        "https://placehold.co/800x800/EAE8E1/0F766E?text=NEX+Runner+Pro+2",
       ]),
       sizes: JSON.stringify(["38", "39", "40", "41", "42", "43", "44"]),
       colors: JSON.stringify(["Preto", "Branco", "Cinza"]),
@@ -86,7 +89,7 @@ async function main() {
       basePrice: 699.9,
       stock: 38,
       images: JSON.stringify([
-        "https://placehold.co/800x800/0A0A0A/CCFF00?text=NEX+Runner+Feminino",
+        "https://placehold.co/800x800/EAE8E1/0F766E?text=NEX+Runner+Feminino",
       ]),
       sizes: JSON.stringify(["34", "35", "36", "37", "38", "39", "40"]),
       colors: JSON.stringify(["Rosa", "Preto", "Branco"]),
@@ -101,7 +104,7 @@ async function main() {
       basePrice: 179.9,
       stock: 120,
       images: JSON.stringify([
-        "https://placehold.co/800x800/0A0A0A/CCFF00?text=Camiseta+NEX+Dry",
+        "https://placehold.co/800x800/EAE8E1/0F766E?text=Camiseta+NEX+Dry",
       ]),
       sizes: JSON.stringify(["P", "M", "G", "GG", "XG"]),
       colors: JSON.stringify(["Preto", "Cinza", "Azul", "Verde Neon"]),
@@ -116,7 +119,7 @@ async function main() {
       basePrice: 199.9,
       stock: 85,
       images: JSON.stringify([
-        "https://placehold.co/800x800/0A0A0A/CCFF00?text=Top+NEX+Support",
+        "https://placehold.co/800x800/EAE8E1/0F766E?text=Top+NEX+Support",
       ]),
       sizes: JSON.stringify(["P", "M", "G", "GG"]),
       colors: JSON.stringify(["Preto", "Rosa", "Roxo"]),
@@ -131,7 +134,7 @@ async function main() {
       basePrice: 69.9,
       stock: 200,
       images: JSON.stringify([
-        "https://placehold.co/800x800/0A0A0A/CCFF00?text=Meia+NEX+Compressao",
+        "https://placehold.co/800x800/EAE8E1/0F766E?text=Meia+NEX+Compressao",
       ]),
       sizes: JSON.stringify(["38-41", "42-45"]),
       colors: JSON.stringify(["Preto", "Branco", "Cinza"]),
@@ -146,7 +149,7 @@ async function main() {
       basePrice: 59.9,
       stock: 180,
       images: JSON.stringify([
-        "https://placehold.co/800x800/0A0A0A/CCFF00?text=Meia+NEX+Invisivel",
+        "https://placehold.co/800x800/EAE8E1/0F766E?text=Meia+NEX+Invisivel",
       ]),
       sizes: JSON.stringify(["34-37", "38-41"]),
       colors: JSON.stringify(["Preto", "Branco", "Bege"]),
@@ -161,7 +164,7 @@ async function main() {
       basePrice: 499.9,
       stock: 30,
       images: JSON.stringify([
-        "https://placehold.co/800x800/0A0A0A/CCFF00?text=Chuteira+NEX+Campo",
+        "https://placehold.co/800x800/EAE8E1/0F766E?text=Chuteira+NEX+Campo",
       ]),
       sizes: JSON.stringify(["38", "39", "40", "41", "42", "43", "44"]),
       colors: JSON.stringify(["Preto/Verde", "Azul/Branco"]),

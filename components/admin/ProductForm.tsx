@@ -236,7 +236,7 @@ export function ProductForm({ categories, product }: ProductFormProps) {
       <Button
         type="submit"
         disabled={isPending}
-        className="rounded-full bg-[#CCFF00] px-8 text-black hover:bg-[#b3e600] disabled:opacity-70"
+        className="rounded-full bg-[#0F766E] px-8 text-black hover:bg-[#b3e600] disabled:opacity-70"
       >
         {isPending ? "Salvando..." : product ? "Atualizar Produto" : "Criar Produto"}
       </Button>

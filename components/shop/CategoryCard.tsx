@@ -12,7 +12,7 @@ interface CategoryCardProps {
 
 export function CategoryCard({ category }: CategoryCardProps) {
   const imageUrl =
-    category.image ?? "https://placehold.co/600x400/0A0A0A/CCFF00?text=NEXSPORTS";
+    category.image ?? "https://placehold.co/600x400/0A0A0A/0F766E?text=NEXSPORTS";
 
   return (
     <Link href={`/categoria/${category.slug}`} className="group relative overflow-hidden rounded-xl">

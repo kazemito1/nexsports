@@ -22,8 +22,8 @@ export default async function AdminProductsPage() {
   return (
     <div className="p-6">
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-black">Produtos</h1>
-        <Button asChild className="rounded-full bg-[#CCFF00] text-black hover:bg-[#b3e600]">
+        <h1 className="text-2xl font-medium lowercase">Produtos</h1>
+        <Button asChild className="rounded-full bg-[#0F766E] text-white hover:bg-[#b3e600]">
           <Link href="/admin/produtos/novo">
             <Plus className="mr-2 h-4 w-4" /> Novo Produto
           </Link>
@@ -49,7 +49,7 @@ export default async function AdminProductsPage() {
                 ? (JSON.parse(product.images) as string[])
                 : [];
               const imageUrl =
-                images[0] ?? "https://placehold.co/80x80/0A0A0A/CCFF00?text=NEX";
+                images[0] ?? "https://placehold.co/80x80/0A0A0A/0F766E?text=NEX";
 
               return (
                 <TableRow key={product.id}>

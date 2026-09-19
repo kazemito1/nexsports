@@ -14,8 +14,8 @@ export function AdminSidebar() {
     <aside className="hidden w-64 flex-col border-r border-neutral-200 bg-white md:flex">
       <div className="flex h-16 items-center gap-2 border-b border-neutral-200 px-6">
         <Link href="/" className="flex items-center gap-1">
-          <span className="text-lg font-black tracking-tighter">NEX</span>
-          <span className="text-lg font-black tracking-tighter text-[#CCFF00]">SPORTS</span>
+          <span className="text-lg font-medium lowercase tracking-tighter">NEX</span>
+          <span className="text-lg font-medium lowercase tracking-tighter text-[#0F766E]">SPORTS</span>
         </Link>
         <span className="ml-2 rounded bg-neutral-100 px-2 py-0.5 text-xs font-bold text-neutral-600">ADMIN</span>
       </div>

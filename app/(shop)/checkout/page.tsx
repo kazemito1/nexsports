@@ -59,8 +59,8 @@ export default function CheckoutPage() {
   if (items.length === 0) {
     return (
       <div className="mx-auto max-w-7xl px-4 py-20 text-center md:px-6">
-        <h1 className="text-2xl font-black">Seu carrinho está vazio</h1>
-        <Button asChild className="mt-6 rounded-full bg-[#CCFF00] text-black hover:bg-[#b3e600]">
+        <h1 className="text-2xl font-medium lowercase">Seu carrinho está vazio</h1>
+        <Button asChild className="mt-6 rounded-full bg-[#0F766E] text-white hover:bg-[#b3e600]">
           <Link href="/">Voltar à loja</Link>
         </Button>
       </div>
@@ -75,7 +75,7 @@ export default function CheckoutPage() {
         </Link>
       </Button>
 
-      <h1 className="mb-8 text-3xl font-black tracking-tight">Finalizar Compra</h1>
+      <h1 className="mb-8 text-3xl font-medium lowercase tracking-tight">Finalizar Compra</h1>
 
       <div className="grid gap-10 lg:grid-cols-3">
         <form onSubmit={handleSubmit} className="space-y-8 lg:col-span-2">
@@ -129,7 +129,7 @@ export default function CheckoutPage() {
           <Button
             type="submit"
             disabled={isLoading}
-            className="w-full rounded-full bg-[#CCFF00] py-6 text-base font-bold text-black hover:bg-[#b3e600] disabled:opacity-70"
+            className="w-full rounded-full bg-[#0F766E] py-6 text-base font-bold text-black hover:bg-[#b3e600] disabled:opacity-70"
           >
             {isLoading ? "Processando..." : `Pagar ${formatCurrency(total)}`}
           </Button>

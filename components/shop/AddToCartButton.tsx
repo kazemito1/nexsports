@@ -28,7 +28,7 @@ export function AddToCartButton({
   const addItem = useCart((state) => state.addItem);
 
   const imageUrl =
-    product.images[0] ?? "https://placehold.co/600x600/0A0A0A/CCFF00?text=NEXSPORTS";
+    product.images[0] ?? "https://placehold.co/600x600/0A0A0A/0F766E?text=NEXSPORTS";
 
   function handleAdd() {
     addItem({
@@ -49,7 +49,7 @@ export function AddToCartButton({
   return (
     <Button
       onClick={handleAdd}
-      className="w-full rounded-full bg-[#CCFF00] py-6 text-base font-bold text-black hover:bg-[#b3e600]"
+      className="w-full rounded-full bg-[#0F766E] py-6 text-base font-bold text-black hover:bg-[#b3e600]"
     >
       {added ? (
         <>

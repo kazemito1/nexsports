@@ -18,9 +18,9 @@ export default function CartPage() {
     return (
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-center px-4 py-20 text-center md:px-6">
         <ShoppingBag className="h-16 w-16 text-neutral-300" />
-        <h1 className="mt-6 text-2xl font-black">Seu carrinho está vazio</h1>
+        <h1 className="mt-6 text-2xl font-medium lowercase">Seu carrinho está vazio</h1>
         <p className="mt-2 text-neutral-600">Adicione produtos e volte aqui para finalizar sua compra.</p>
-        <Button asChild className="mt-6 rounded-full bg-[#CCFF00] px-6 text-black hover:bg-[#b3e600]">
+        <Button asChild className="mt-6 rounded-full bg-[#0F766E] px-6 text-black hover:bg-[#b3e600]">
           <Link href="/">Continuar Comprando</Link>
         </Button>
       </div>
@@ -29,7 +29,7 @@ export default function CartPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
-      <h1 className="mb-8 text-3xl font-black tracking-tight">Carrinho</h1>
+      <h1 className="mb-8 text-3xl font-medium lowercase tracking-tight">Carrinho</h1>
 
       <div className="grid gap-10 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-4">
@@ -119,7 +119,7 @@ export default function CartPage() {
 
           <Button
             asChild
-            className="mt-6 w-full rounded-full bg-[#CCFF00] py-6 text-base font-bold text-black hover:bg-[#b3e600]"
+            className="mt-6 w-full rounded-full bg-[#0F766E] py-6 text-base font-bold text-black hover:bg-[#b3e600]"
           >
             <Link href="/checkout">
               Finalizar Compra <ArrowRight className="ml-2 h-4 w-4" />

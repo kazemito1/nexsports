@@ -60,7 +60,7 @@ interface ProductDetailProps {
 }
 
 function ProductDetail({ product }: ProductDetailProps) {
-  const [selectedImage, setSelectedImage] = useState(product.images[0] ?? "https://placehold.co/800x800/0A0A0A/CCFF00?text=NEXSPORTS");
+  const [selectedImage, setSelectedImage] = useState(product.images[0] ?? "https://placehold.co/800x800/0A0A0A/0F766E?text=NEXSPORTS");
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [quantity, setQuantity] = useState(1);
@@ -88,7 +88,7 @@ function ProductDetail({ product }: ProductDetailProps) {
                   key={image}
                   onClick={() => setSelectedImage(image)}
                   className={`relative aspect-square w-20 overflow-hidden rounded-lg border-2 ${
-                    selectedImage === image ? "border-[#CCFF00]" : "border-transparent"
+                    selectedImage === image ? "border-[#0F766E]" : "border-transparent"
                   }`}
                 >
                   <Image src={image} alt={product.name} fill className="object-cover" />
@@ -102,7 +102,7 @@ function ProductDetail({ product }: ProductDetailProps) {
         <div className="space-y-6">
           <div>
             <p className="text-sm font-medium text-neutral-500">{product.category.name}</p>
-            <h1 className="mt-1 text-3xl font-black tracking-tight md:text-4xl">{product.name}</h1>
+            <h1 className="mt-1 text-3xl font-medium lowercase tracking-tight md:text-4xl">{product.name}</h1>
             <div className="mt-3 flex items-center gap-3">
               <span className="text-2xl font-bold">{formatCurrency(product.price)}</span>
               {hasDiscount && product.basePrice && (

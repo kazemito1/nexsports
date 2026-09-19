@@ -44,7 +44,7 @@ export default async function AdminOrdersPage() {
 
   return (
     <div className="p-6">
-      <h1 className="mb-6 text-2xl font-black">Pedidos</h1>
+      <h1 className="mb-6 text-2xl font-medium lowercase">Pedidos</h1>
 
       <div className="overflow-x-auto rounded-xl border border-neutral-200 bg-white">
         <Table>
