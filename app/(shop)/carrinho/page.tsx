@@ -18,7 +18,7 @@ export default function CartPage() {
     return (
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-center px-4 py-20 text-center md:px-6">
         <ShoppingBag className="h-16 w-16 text-muted-foreground" />
-        <h1 className="mt-6 text-2xl font-medium lowercase">Seu carrinho está vazio</h1>
+        <h1 className="mt-6 text-2xl font-medium">Seu carrinho está vazio</h1>
         <p className="mt-2 text-muted-foreground">Adicione produtos e volte aqui para finalizar sua compra.</p>
         <Button asChild className="mt-6 rounded-full bg-[#0F766E] px-6 text-black hover:bg-[#b3e600]">
           <Link href="/">Continuar Comprando</Link>
@@ -29,7 +29,7 @@ export default function CartPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 md:px-6">
-      <h1 className="mb-8 text-3xl font-medium lowercase tracking-tight">Carrinho</h1>
+      <h1 className="mb-8 text-3xl font-medium tracking-tight">Carrinho</h1>
 
       <div className="grid gap-10 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-4">

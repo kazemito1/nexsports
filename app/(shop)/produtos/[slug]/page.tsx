@@ -102,7 +102,7 @@ function ProductDetail({ product }: ProductDetailProps) {
         <div className="space-y-6">
           <div>
             <p className="text-sm font-medium text-muted-foreground">{product.category.name}</p>
-            <h1 className="mt-1 text-3xl font-medium lowercase tracking-tight md:text-4xl">{product.name}</h1>
+            <h1 className="mt-1 text-3xl font-medium tracking-tight md:text-4xl">{product.name}</h1>
             <div className="mt-3 flex items-center gap-3">
               <span className="text-2xl font-bold">{formatCurrency(product.price)}</span>
               {hasDiscount && product.basePrice && (

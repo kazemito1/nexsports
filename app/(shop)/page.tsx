@@ -6,120 +6,91 @@ import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/shop/ProductCard";
 
 export default async function HomePage() {
-  const [featuredProducts, femCategory, mascCategory] = await Promise.all([
-    prisma.product.findMany({
-      where: { featured: true, active: true },
-      take: 3,
-      include: { category: true },
-    }),
-    prisma.category.findUnique({ where: { slug: "roupas-femininas" } }),
-    prisma.category.findUnique({ where: { slug: "roupas-masculinas" } }),
-  ]);
-
-  const features = [
-    {
-      category: femCategory,
-      caption: "roupas femininas",
-      description: "conforto para o dia a dia",
-      image: "/design/category-feminino.png",
-    },
-    {
-      category: mascCategory,
-      caption: "roupas masculinas",
-      description: "versatilidade para treinar",
-      image: "/design/category-masculino.png",
-    },
-  ].filter((f) => f.category !== null);
+  const featuredProducts = await prisma.product.findMany({
+    where: { featured: true, active: true },
+    take: 4,
+    include: { category: true },
+  });
 
   return (
-    <main className="mx-auto max-w-6xl px-4 md:px-6">
-      {/* Hero: lifestyle photo with lowercase headline overlay */}
-      <section className="relative mt-6 overflow-hidden rounded-[24px] min-h-[560px] lg:min-h-[72vh]">
-        <Image
-          src="/design/hero-runner.png"
-          alt="Corredor em movimento"
-          fill
-          className="object-cover"
-          priority
-          fetchPriority="high"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 max-w-xl p-8 md:p-12">
-          <h1 className="text-4xl font-medium lowercase leading-tight tracking-tight text-foreground md:text-6xl">
-            encontre seu ritmo
-          </h1>
-          <p className="mt-4 max-w-md text-base text-muted-foreground md:text-lg">
-            Conforto e estilo para o seu dia a dia. Peças pensadas para você treinar e viver melhor.
+    <main>
+      {/* Cinematic hero: luminous uppercase headline left, product photo right */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/design/hero-dark.png"
+            alt="Tênis de corrida em movimento"
+            fill
+            className="object-cover opacity-70"
+            priority
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-4 py-28 md:px-6 md:py-40">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+            Nova coleção
           </p>
-          <Button
-            asChild
-            className="mt-6 h-12 rounded-full bg-primary px-8 text-base font-medium text-primary-foreground lowercase hover:bg-primary/90"
-          >
-            <Link href="/categoria/calcados">
-              comprar agora <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <h1 className="mt-6 max-w-2xl text-5xl font-medium uppercase leading-[1.05] tracking-[-2%] text-foreground md:text-7xl">
+            <span className="block">Supere</span>
+            <span className="block">seus</span>
+            <span className="block text-primary">limites</span>
+          </h1>
+          <p className="mt-6 max-w-md text-base text-muted-foreground md:text-lg">
+            Equipamento de alta performance para quem não conhece limites. Calçados, roupas e acessórios esportivos.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button
+              asChild
+              className="h-12 rounded-lg bg-primary px-8 text-base font-medium uppercase tracking-wide text-primary-foreground hover:bg-primary/90"
+            >
+              <Link href="/categoria/calcados">
+                Comprar agora <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="h-12 rounded-lg border-border bg-transparent px-8 text-base font-medium uppercase tracking-wide text-foreground hover:bg-secondary"
+            >
+              <Link href="/categoria/roupas-masculinas">Ver roupas</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Two asymmetric feature blocks */}
-      <section className="mt-16 grid gap-6 md:grid-cols-2">
-        {features.map((feature) => (
-          <Link
-            key={feature.category!.id}
-            href={`/categoria/${feature.category!.slug}`}
-            className="group relative overflow-hidden rounded-[24px] bg-secondary"
-          >
-            <div className="relative aspect-[4/5]">
-              <Image
-                src={feature.image}
-                alt={feature.caption}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6 md:p-8">
-                <h2 className="text-2xl font-medium lowercase text-foreground md:text-3xl">
-                  {feature.caption}
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground">{feature.description}</p>
-                <span className="mt-4 inline-flex items-center text-sm font-medium text-primary lowercase">
-                  explorar <ArrowRight className="ml-1 h-4 w-4" />
-                </span>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </section>
-
-      {/* Tidy 3-product row */}
-      <section className="mt-16">
+      {/* Elevated product row on dark cards */}
+      <section className="mx-auto max-w-6xl px-4 py-16 md:px-6">
         <div className="mb-8 flex items-end justify-between">
-          <h2 className="text-2xl font-medium lowercase text-foreground md:text-3xl">novidades</h2>
-          <Link href="/categoria/roupas-masculinas" className="inline-flex items-center text-sm font-medium text-primary lowercase hover:underline">
-            ver tudo <ArrowRight className="ml-1 h-4 w-4" />
+          <h2 className="text-2xl font-medium uppercase tracking-[-2%] text-foreground md:text-3xl">
+            Destaques
+          </h2>
+          <Link href="/categoria/roupas-masculinas" className="inline-flex items-center text-sm font-medium text-primary uppercase tracking-wide hover:underline">
+            Ver tudo <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </section>
 
-      {/* Minimal benefits strip */}
-      <section className="mt-16 mb-16 rounded-[24px] bg-card py-10">
-        <div className="grid gap-8 text-center sm:grid-cols-3">
-          <div>
-            <p className="text-sm font-medium lowercase text-foreground">frete grátis</p>
+      {/* Slim benefits strip with thin dividers */}
+      <section className="border-y border-border">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 text-center sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border md:px-6">
+          <div className="px-4">
+            <p className="text-sm font-medium uppercase tracking-wide text-foreground">Frete grátis</p>
             <p className="mt-1 text-xs text-muted-foreground">em compras acima de R$ 300</p>
           </div>
-          <div>
-            <p className="text-sm font-medium lowercase text-foreground">troca fácil</p>
+          <div className="px-4">
+            <p className="text-sm font-medium uppercase tracking-wide text-foreground">Troca fácil</p>
             <p className="mt-1 text-xs text-muted-foreground">até 7 dias após o recebimento</p>
           </div>
-          <div>
-            <p className="text-sm font-medium lowercase text-foreground">pagamento seguro</p>
+          <div className="px-4">
+            <p className="text-sm font-medium uppercase tracking-wide text-foreground">Pagamento seguro</p>
             <p className="mt-1 text-xs text-muted-foreground">dados protegidos do início ao fim</p>
           </div>
         </div>
