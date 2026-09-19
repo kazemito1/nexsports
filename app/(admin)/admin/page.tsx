@@ -35,8 +35,8 @@ export default async function AdminDashboardPage() {
         {cards.map((card) => (
           <Card key={card.title}>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-neutral-600">{card.title}</CardTitle>
-              <card.icon className="h-4 w-4 text-neutral-500" />
+              <CardTitle className="text-sm font-medium text-muted-foreground">{card.title}</CardTitle>
+              <card.icon className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{card.value}</div>
@@ -46,16 +46,16 @@ export default async function AdminDashboardPage() {
       </div>
 
       <h2 className="mb-4 text-lg font-bold">Pedidos Recentes</h2>
-      <div className="rounded-xl border border-neutral-200 bg-white">
+      <div className="rounded-xl border border-border bg-card">
         {recentOrders.length === 0 ? (
-          <p className="p-6 text-sm text-neutral-600">Nenhum pedido encontrado.</p>
+          <p className="p-6 text-sm text-muted-foreground">Nenhum pedido encontrado.</p>
         ) : (
-          <div className="divide-y divide-neutral-200">
+          <div className="divide-y divide-border">
             {recentOrders.map((order) => (
               <div key={order.id} className="flex items-center justify-between p-4">
                 <div>
                   <p className="font-semibold">Pedido #{order.id.slice(-6).toUpperCase()}</p>
-                  <p className="text-sm text-neutral-500">
+                  <p className="text-sm text-muted-foreground">
                     {order.user?.name ?? "Cliente não identificado"} • {" "}
                     {order.items.length} item(s)
                   </p>

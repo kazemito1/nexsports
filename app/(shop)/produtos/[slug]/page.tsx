@@ -72,7 +72,7 @@ function ProductDetail({ product }: ProductDetailProps) {
       <div className="grid gap-10 lg:grid-cols-2">
         {/* Gallery */}
         <div className="space-y-4">
-          <div className="relative aspect-square overflow-hidden rounded-2xl bg-neutral-100">
+          <div className="relative aspect-square overflow-hidden rounded-2xl bg-secondary">
             <Image
               src={selectedImage}
               alt={product.name}
@@ -101,18 +101,18 @@ function ProductDetail({ product }: ProductDetailProps) {
         {/* Info */}
         <div className="space-y-6">
           <div>
-            <p className="text-sm font-medium text-neutral-500">{product.category.name}</p>
+            <p className="text-sm font-medium text-muted-foreground">{product.category.name}</p>
             <h1 className="mt-1 text-3xl font-medium lowercase tracking-tight md:text-4xl">{product.name}</h1>
             <div className="mt-3 flex items-center gap-3">
               <span className="text-2xl font-bold">{formatCurrency(product.price)}</span>
               {hasDiscount && product.basePrice && (
-                <span className="text-lg text-neutral-400 line-through">{formatCurrency(product.basePrice)}</span>
+                <span className="text-lg text-muted-foreground line-through">{formatCurrency(product.basePrice)}</span>
               )}
             </div>
           </div>
 
           {product.description && (
-            <p className="text-neutral-600">{product.description}</p>
+            <p className="text-muted-foreground">{product.description}</p>
           )}
 
           {product.sizes.length > 0 && (
@@ -127,7 +127,7 @@ function ProductDetail({ product }: ProductDetailProps) {
                     onClick={() => setSelectedSize(size)}
                     className={
                       selectedSize === size
-                        ? "bg-black text-white hover:bg-neutral-800"
+                        ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
                         : ""
                     }
                   >
@@ -150,7 +150,7 @@ function ProductDetail({ product }: ProductDetailProps) {
                     onClick={() => setSelectedColor(color)}
                     className={
                       selectedColor === color
-                        ? "bg-black text-white hover:bg-neutral-800"
+                        ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
                         : ""
                     }
                   >
@@ -189,7 +189,7 @@ function ProductDetail({ product }: ProductDetailProps) {
             quantity={quantity}
           />
 
-          <div className="rounded-xl bg-neutral-50 p-4 text-sm text-neutral-600">
+          <div className="rounded-xl bg-secondary p-4 text-sm text-muted-foreground">
             <p>✓ Envio para todo o Brasil</p>
             <p>✓ Trocas e devoluções em até 7 dias</p>
             <p>✓ Pagamento seguro</p>

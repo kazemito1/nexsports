@@ -17,9 +17,9 @@ export default function CartPage() {
   if (items.length === 0) {
     return (
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-center px-4 py-20 text-center md:px-6">
-        <ShoppingBag className="h-16 w-16 text-neutral-300" />
+        <ShoppingBag className="h-16 w-16 text-muted-foreground" />
         <h1 className="mt-6 text-2xl font-medium lowercase">Seu carrinho está vazio</h1>
-        <p className="mt-2 text-neutral-600">Adicione produtos e volte aqui para finalizar sua compra.</p>
+        <p className="mt-2 text-muted-foreground">Adicione produtos e volte aqui para finalizar sua compra.</p>
         <Button asChild className="mt-6 rounded-full bg-[#0F766E] px-6 text-black hover:bg-[#b3e600]">
           <Link href="/">Continuar Comprando</Link>
         </Button>
@@ -36,9 +36,9 @@ export default function CartPage() {
           {items.map((item) => (
             <div
               key={`${item.productId}-${item.size}-${item.color}`}
-              className="flex gap-4 rounded-xl border border-neutral-200 p-4"
+              className="flex gap-4 rounded-xl border border-border p-4"
             >
-              <div className="relative aspect-square w-24 overflow-hidden rounded-lg bg-neutral-100">
+              <div className="relative aspect-square w-24 overflow-hidden rounded-lg bg-secondary">
                 <Image src={item.image} alt={item.name} fill className="object-cover" />
               </div>
 
@@ -50,7 +50,7 @@ export default function CartPage() {
                   >
                     {item.name}
                   </Link>
-                  <p className="text-sm text-neutral-500">
+                  <p className="text-sm text-muted-foreground">
                     {item.size && `Tamanho: ${item.size}`}
                     {item.size && item.color && " / "}
                     {item.color && `Cor: ${item.color}`}
@@ -89,7 +89,7 @@ export default function CartPage() {
                         removeItem(item.productId, item.size, item.color)
                       }
                     >
-                      <Trash2 className="h-4 w-4 text-red-500" />
+                      <Trash2 className="h-4 w-4 text-destructive" />
                     </Button>
                   </div>
                 </div>
@@ -99,18 +99,18 @@ export default function CartPage() {
         </div>
 
         {/* Summary */}
-        <div className="h-fit rounded-xl border border-neutral-200 p-6">
+        <div className="h-fit rounded-xl border border-border p-6">
           <h2 className="mb-4 text-lg font-bold">Resumo do Pedido</h2>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-neutral-600">Subtotal</span>
+              <span className="text-muted-foreground">Subtotal</span>
               <span>{formatCurrency(subtotal)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-neutral-600">Entrega</span>
+              <span className="text-muted-foreground">Entrega</span>
               <span>{shipping === 0 ? "Grátis" : formatCurrency(shipping)}</span>
             </div>
-            <hr className="border-neutral-200" />
+            <hr className="border-border" />
             <div className="flex justify-between text-base font-bold">
               <span>Total</span>
               <span>{formatCurrency(total)}</span>
@@ -126,7 +126,7 @@ export default function CartPage() {
             </Link>
           </Button>
 
-          <p className="mt-3 text-center text-xs text-neutral-500">
+          <p className="mt-3 text-center text-xs text-muted-foreground">
             Frete grátis em compras acima de {formatCurrency(300)}
           </p>
         </div>

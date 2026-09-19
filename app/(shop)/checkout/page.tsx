@@ -79,7 +79,7 @@ export default function CheckoutPage() {
 
       <div className="grid gap-10 lg:grid-cols-3">
         <form onSubmit={handleSubmit} className="space-y-8 lg:col-span-2">
-          <section className="rounded-xl border border-neutral-200 p-6">
+          <section className="rounded-xl border border-border p-6">
             <div className="mb-4 flex items-center gap-2">
               <MapPin className="h-5 w-5" />
               <h2 className="text-lg font-bold">Endereço de Entrega</h2>
@@ -116,12 +116,12 @@ export default function CheckoutPage() {
             </div>
           </section>
 
-          <section className="rounded-xl border border-neutral-200 p-6">
+          <section className="rounded-xl border border-border p-6">
             <div className="mb-4 flex items-center gap-2">
               <CreditCard className="h-5 w-5" />
               <h2 className="text-lg font-bold">Pagamento</h2>
             </div>
-            <p className="text-sm text-neutral-600">
+            <p className="text-sm text-muted-foreground">
               Você será redirecionado para o Stripe para finalizar o pagamento com segurança.
             </p>
           </section>
@@ -135,12 +135,12 @@ export default function CheckoutPage() {
           </Button>
         </form>
 
-        <aside className="h-fit rounded-xl border border-neutral-200 p-6">
+        <aside className="h-fit rounded-xl border border-border p-6">
           <h2 className="mb-4 text-lg font-bold">Resumo</h2>
           <div className="space-y-3">
             {items.map((item) => (
               <div key={`${item.productId}-${item.size}-${item.color}`} className="flex justify-between text-sm">
-                <span className="text-neutral-600">
+                <span className="text-muted-foreground">
                   {item.name} x {item.quantity}
                 </span>
                 <span>{formatCurrency(item.price * item.quantity)}</span>
@@ -150,11 +150,11 @@ export default function CheckoutPage() {
           <Separator className="my-4" />
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-neutral-600">Subtotal</span>
+              <span className="text-muted-foreground">Subtotal</span>
               <span>{formatCurrency(subtotal)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-neutral-600">Entrega</span>
+              <span className="text-muted-foreground">Entrega</span>
               <span>{shipping === 0 ? "Grátis" : formatCurrency(shipping)}</span>
             </div>
             <Separator className="my-2" />

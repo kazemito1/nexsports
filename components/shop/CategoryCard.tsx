@@ -26,7 +26,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
         <div className="absolute bottom-0 left-0 p-4">
           <h3 className="text-lg font-bold text-white">{category.name}</h3>
-          <span className="text-sm text-neutral-200 opacity-0 transition-opacity group-hover:opacity-100">Ver produtos →</span>
+          <span className="text-sm text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100">Ver produtos →</span>
         </div>
       </div>
     </Link>

@@ -28,13 +28,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <div className="mb-8">
         <h1 className="text-3xl font-medium lowercase tracking-tight">{category.name}</h1>
         {category.description && (
-          <p className="mt-2 text-neutral-600">{category.description}</p>
+          <p className="mt-2 text-muted-foreground">{category.description}</p>
         )}
       </div>
 
       {products.length === 0 ? (
-        <div className="rounded-xl border border-neutral-200 bg-neutral-50 py-16 text-center">
-          <p className="text-neutral-600">Nenhum produto encontrado nesta categoria.</p>
+        <div className="rounded-xl border border-border bg-secondary py-16 text-center">
+          <p className="text-muted-foreground">Nenhum produto encontrado nesta categoria.</p>
         </div>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

@@ -9,7 +9,7 @@ export default function CheckoutSuccessPage() {
         <CheckCircle className="h-10 w-10 text-black" />
       </div>
       <h1 className="mt-6 text-3xl font-medium lowercase">Pedido Confirmado!</h1>
-      <p className="mt-3 text-neutral-600">
+      <p className="mt-3 text-muted-foreground">
         Obrigado por comprar na NEXSPORTS. Você receberá um e-mail com os detalhes do seu pedido em breve.
       </p>
       <Button asChild className="mt-8 rounded-full bg-[#0F766E] px-8 text-black hover:bg-[#b3e600]">
